@@ -1,0 +1,31 @@
+Create a complete, frontend-only e-commerce website for baby wear called "Planet Mini" using Next.js (App Router), React, and Tailwind CSS for styling. Base the exact design, layout, sections, color scheme, and visual elements strictly on the provided screenshot of the Planet Mini homepage (attached as WhatsApp-Image-2026-02-16-at-8.38.02-PM.jpg or embedded above): include the hero banner with logo (Planet Mini globe icon), navigation (Home, About, Contact, Shop), "Welcome to Planet Mini" title, "Adorable Comfortable Baby Wear" subtitle, "Shop by Style" and "Shop by Age" grids (0-6 months, 6-12 months, 12-24 months with baby images and outfit/essentials cards), "Baby Care" section (onesies, sleeper, bath toys, skincare, bath & body), "Super Saver Offers" with 3-pack products (onesies, diapers, cloths with discount badges), footer (About, Contact, Know Us), and "Join the Eco Family" with happy family image. Use exclusively pale, soft versions of the image's pink (#f9e8f0 pastel pink), blue (#e6f0fa pastel blue), and white (#ffffff)—no bold colors.
+
+Frontend-only requirements (no backend needed yet):
+
+Next.js 14+ with TypeScript, Tailwind CSS (custom config for pale pink/blue/white palette matching image exactly).
+
+Modern design with Framer Motion for animations: page fade-in, hero text slide-up, product cards stagger on scroll, hover scales/lifts, button pulses.
+
+Static/mock data: Hardcode 20+ products in JSON (components/data/products.ts) matching all sections (outfits by age/style, baby care items, super offers)—include images (use placeholder URLs like Unsplash baby wear in pale tones or SVG placeholders), prices, ratings, add-to-cart buttons.
+
+Essential pages and sections (fully functional frontend):
+
+Home (/) replicating screenshot exactly.
+
+Shop by Style (/shop/style), Shop by Age (/shop/age), Baby Care (/shop/care)—grid layouts with filters (age, price, color), search bar, pagination (mock).
+
+Product Detail (/products/[slug])—hero image carousel, description, size/color selectors, quantity, "Add to Cart" button.
+
+Cart (/cart)—product list, quantity update, subtotal, "Checkout" button (mock).
+
+Checkout (/checkout)—form (name, address, payment mock), order summary.
+
+Account (/account)—mock login/register form, orders history (static data).
+
+About (/about), Contact (/contact)—matching footer links, simple forms.
+
+Features: Responsive (mobile-first, exact image layout on desktop/tablet/mobile), global cart state (React Context/Zustand), wishlist, search, category nav, sticky header, smooth scrolling.
+
+Performance/SEO: Next.js Image with placeholders, metadata per page, lazy loading.
+
+No database/backend: Pure frontend—use localStorage for cart/persistence. No MongoDB/Stripe/Auth APIs—mock everything (e.g., fake login with localStorage).
