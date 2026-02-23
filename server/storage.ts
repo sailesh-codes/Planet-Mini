@@ -1,6 +1,5 @@
-import { db } from "./db";
-import { products, type Product } from "@shared/schema";
-import { eq } from "drizzle-orm";
+import { productsStorage } from "./db";
+import { type Product } from "@shared/schema";
 
 export interface IStorage {
   getProducts(): Promise<Product[]>;
@@ -10,17 +9,15 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getProducts(): Promise<Product[]> {
-    return await db.select().from(products);
+    return await productsStorage.getProducts();
   }
 
   async getProductBySlug(slug: string): Promise<Product | undefined> {
-    const [product] = await db.select().from(products).where(eq(products.slug, slug));
-    return product;
+    return await productsStorage.getProductBySlug(slug);
   }
 
   async createProduct(product: Omit<Product, "id">): Promise<Product> {
-    const [newProduct] = await db.insert(products).values(product).returning();
-    return newProduct;
+    return await productsStorage.createProduct(product);
   }
 }
 

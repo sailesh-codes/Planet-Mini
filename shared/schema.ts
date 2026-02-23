@@ -1,23 +1,23 @@
-import { pgTable, text, serial, integer, boolean, numeric, jsonb } from "drizzle-orm/pg-core";
+import { sqliteTable, text, integer, boolean, real } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const products = pgTable("products", {
-  id: serial("id").primaryKey(),
+export const products = sqliteTable("products", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
   slug: text("slug").notNull().unique(),
   name: text("name").notNull(),
   description: text("description").notNull(),
-  price: numeric("price").notNull(),
-  originalPrice: numeric("original_price"),
+  price: real("price").notNull(),
+  originalPrice: real("original_price"),
   category: text("category").notNull(), // style, age, care
   subcategory: text("subcategory"),
   image: text("image").notNull(),
-  rating: numeric("rating").notNull(),
+  rating: real("rating").notNull(),
   reviews: integer("reviews").notNull(),
-  inStock: boolean("in_stock").default(true),
-  isNew: boolean("is_new").default(false),
-  colors: jsonb("colors").$type<string[]>(),
-  sizes: jsonb("sizes").$type<string[]>(),
+  inStock: integer("in_stock", { mode: "boolean" }).default(1),
+  isNew: integer("is_new", { mode: "boolean" }).default(0),
+  colors: text("colors"), // JSON string for SQLite
+  sizes: text("sizes"), // JSON string for SQLite
 });
 
 export const insertProductSchema = createInsertSchema(products).omit({ id: true });
