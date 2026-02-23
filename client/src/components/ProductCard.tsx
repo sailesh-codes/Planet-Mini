@@ -41,7 +41,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative flex flex-col"
     >
-      <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] mb-4 bg-muted/30 rounded-3xl overflow-hidden cursor-pointer">
+      <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] mb-4 bg-muted/30 rounded-3xl overflow-hidden cursor-pointer border-2 border-transparent group-hover:border-primary/30 transition-all duration-300">
         <img
           src={product.image}
           alt={product.name}
@@ -51,12 +51,12 @@ export function ProductCard({ product, index }: ProductCardProps) {
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {product.isNew && (
-            <span className="px-3 py-1 text-xs font-semibold bg-accent text-accent-foreground rounded-full shadow-sm">
+            <span className="px-3 py-1 text-xs font-semibold bg-primary text-primary-foreground rounded-full shadow-sm">
               New
             </span>
           )}
           {product.originalPrice && (
-            <span className="px-3 py-1 text-xs font-semibold bg-destructive/10 text-destructive rounded-full shadow-sm">
+            <span className="px-3 py-1 text-xs font-semibold bg-secondary text-secondary-foreground rounded-full shadow-sm">
               Sale
             </span>
           )}
