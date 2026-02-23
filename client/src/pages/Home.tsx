@@ -4,6 +4,9 @@ import { ProductCard } from "@/components/ProductCard";
 import { useProducts } from "@/hooks/use-products";
 import { motion } from "framer-motion";
 import Slider from "@/components/Slider";
+import CategoryCard from "@/components/CategoryCard";
+import ProductGrid from "@/components/ProductGrid";
+import { Baby, Shirt, Moon, Package, Heart, Star, ShoppingBag, Sparkles, Gift } from "lucide-react";
 
 export default function Home() {
   const { data: products, isLoading } = useProducts();
@@ -36,36 +39,138 @@ export default function Home() {
   ];
 
   const shopByStyle = [
-    { name: "Onesies", icon: "👶", href: "/shop/style?val=onesies" },
-    { name: "Sleepwear", icon: "🌙", href: "/shop/style?val=sleepwear" },
-    { name: "Cute Outfits", icon: "👗", href: "/shop/style?val=outfits" }
+    { 
+      name: "Onesies", 
+      description: "Comfortable and adorable onesies for everyday wear",
+      icon: "👶", 
+      href: "/shop/style?val=onesies",
+      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=400",
+      productCount: 24
+    },
+    { 
+      name: "Sleepwear", 
+      description: "Cozy sleepwear for peaceful nights",
+      icon: "🌙", 
+      href: "/shop/style?val=sleepwear",
+      image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?auto=format&fit=crop&q=80&w=400",
+      productCount: 18
+    },
+    { 
+      name: "Cute Outfits", 
+      description: "Stylish outfits for special occasions",
+      icon: "👗", 
+      href: "/shop/style?val=outfits",
+      image: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&q=80&w=400",
+      productCount: 32
+    }
   ];
 
   const shopByAge = [
-    { name: "0-6 Months", icon: "🍼", href: "/shop/age?val=0-6" },
-    { name: "6-12 Months", icon: "🧸", href: "/shop/age?val=6-12" },
-    { name: "1-2 Years", icon: "🎈", href: "/shop/age?val=1-2" }
+    { 
+      name: "0-6 Months", 
+      description: "Essentials for newborns and infants",
+      icon: "🍼", 
+      href: "/shop/age?val=0-6",
+      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=400",
+      productCount: 36
+    },
+    { 
+      name: "6-12 Months", 
+      description: "Clothing for growing babies",
+      icon: "🧸", 
+      href: "/shop/age?val=6-12",
+      image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?auto=format&fit=crop&q=80&w=400",
+      productCount: 42
+    },
+    { 
+      name: "1-2 Years", 
+      description: "Outfits for toddlers and little walkers",
+      icon: "🎈", 
+      href: "/shop/age?val=1-2",
+      image: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&q=80&w=400",
+      productCount: 28
+    }
   ];
 
   const babyCareEssentials = [
-    { name: "Bath Towels & Robes", icon: "🛁", href: "/shop/care?val=bath" },
-    { name: "Bath Toys", icon: "🦆", href: "/shop/care?val=toys" },
-    { name: "Skincare Products", icon: "🧴", href: "/shop/care?val=skincare" },
-    { name: "Bibs & Burp Cloths", icon: "🧷", href: "/shop/care?val=bibs" }
+    { 
+      name: "Bath Towels & Robes", 
+      description: "Soft and absorbent bath essentials",
+      icon: "🛁", 
+      href: "/shop/care?val=bath",
+      image: "https://images.unsplash.com/photo-1559418306-036f0072cfa1?auto=format&fit=crop&q=80&w=400",
+      productCount: 15
+    },
+    { 
+      name: "Bath Toys", 
+      description: "Fun toys for bath time",
+      icon: "🦆", 
+      href: "/shop/care?val=toys",
+      image: "https://images.unsplash.com/photo-1628148782352-8705a67978d3?auto=format&fit=crop&q=80&w=400",
+      productCount: 22
+    },
+    { 
+      name: "Skincare Products", 
+      description: "Gentle care for delicate skin",
+      icon: "🧴", 
+      href: "/shop/care?val=skincare",
+      image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=400",
+      productCount: 18
+    },
+    { 
+      name: "Bibs & Burp Cloths", 
+      description: "Essential feeding accessories",
+      icon: "🧷", 
+      href: "/shop/care?val=bibs",
+      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=400",
+      productCount: 25
+    }
   ];
 
   const superSaverOffers = [
-    { name: "3-Pack Onesies", icon: "👕", href: "/shop/offers?val=onesies-pack", badge: null },
-    { name: "3-Pack Jablas", icon: "🧥", href: "/shop/offers?val=jablas-pack", badge: null },
-    { name: "3-Pack Diapers", icon: "🚀", href: "/shop/offers?val=diapers-pack", badge: "BEST OFFER" },
-    { name: "5-Pack Nappies", icon: "�", href: "/shop/offers?val=nappies-pack", badge: null }
+    { 
+      name: "3-Pack Onesies", 
+      description: "Essential onesies pack for everyday comfort",
+      icon: "👕", 
+      href: "/shop/offers?val=onesies-pack",
+      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=400",
+      productCount: 12,
+      badge: "33% OFF"
+    },
+    { 
+      name: "3-Pack Jablas", 
+      description: "Traditional baby wear set",
+      icon: "🧥", 
+      href: "/shop/offers?val=jablas-pack",
+      image: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&q=80&w=400",
+      productCount: 8,
+      badge: "27% OFF"
+    },
+    { 
+      name: "3-Pack Diapers", 
+      description: "Ultra-absorbent diapers for all-day protection",
+      icon: "🚀", 
+      href: "/shop/offers?val=diapers-pack",
+      image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?auto=format&fit=crop&q=80&w=400",
+      productCount: 15,
+      badge: "BEST OFFER"
+    },
+    { 
+      name: "5-Pack Nappies", 
+      description: "Soft and gentle nappies for sensitive skin",
+      icon: "📦", 
+      href: "/shop/offers?val=nappies-pack",
+      image: "https://images.unsplash.com/photo-1541697960113-1ca22342bd6d?auto=format&fit=crop&q=80&w=400",
+      productCount: 10,
+      badge: "38% OFF"
+    }
   ];
 
   return (
     <div className="space-y-16">
       {/* Hero Section with Slider */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-blue-100/50 via-pink-100/50 to-purple-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-pink-100/70 via-rose-100/60 to-pink-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
           <Slider slides={sliderSlides} autoPlay={true} interval={4000} />
         </div>
       </section>
@@ -79,27 +184,14 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
               Shop by Style
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
-            {shopByStyle.map((category, index) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <Link href={category.href} className="block">
-                  <div className="relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/20 p-8 text-center group-hover:bg-white/40 transition-all duration-300">
-                    <div className="text-5xl mb-4">{category.icon}</div>
-                    <h3 className="text-lg font-semibold text-primary">{category.name}</h3>
-                  </div>
-                </Link>
-              </motion.div>
+            {shopByStyle.map((category) => (
+              <CategoryCard key={category.name} {...category} />
             ))}
           </div>
         </div>
@@ -114,27 +206,14 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
               Shop by Age
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
-            {shopByAge.map((category, index) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <Link href={category.href} className="block">
-                  <div className="relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/20 p-8 text-center group-hover:bg-white/40 transition-all duration-300">
-                    <div className="text-5xl mb-4">{category.icon}</div>
-                    <h3 className="text-lg font-semibold text-primary">{category.name}</h3>
-                  </div>
-                </Link>
-              </motion.div>
+            {shopByAge.map((category) => (
+              <CategoryCard key={category.name} {...category} />
             ))}
           </div>
         </div>
@@ -149,28 +228,14 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
               Baby Care Essentials
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {babyCareEssentials.map((category, index) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <Link href={category.href} className="block">
-                  <div className="relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/20 p-6 text-center group-hover:bg-white/40 transition-all duration-300">
-                    <div className="text-4xl mb-3">{category.icon}</div>
-                    <h3 className="text-sm font-semibold text-primary mb-3">{category.name}</h3>
-                    <Button size="sm" className="w-full">Shop Now</Button>
-                  </div>
-                </Link>
-              </motion.div>
+            {babyCareEssentials.map((category) => (
+              <CategoryCard key={category.name} {...category} />
             ))}
           </div>
         </div>
@@ -185,35 +250,28 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-              <span className="text-4xl">🎁</span>
+              <Gift className="w-8 h-8 text-primary" />
               Super Saver Offers
-              <span className="text-4xl">🎁</span>
+              <Gift className="w-8 h-8 text-primary" />
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {superSaverOffers.map((offer, index) => (
-              <motion.div
-                key={offer.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative"
-              >
-                <Link href={offer.href} className="block">
-                  <div className="relative rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/20 p-6 text-center group-hover:bg-white/40 transition-all duration-300">
-                    {offer.badge && (
-                      <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
-                        {offer.badge}
-                      </div>
-                    )}
-                    <div className="text-4xl mb-3">{offer.icon}</div>
-                    <h3 className="text-sm font-semibold text-primary mb-3">{offer.name}</h3>
-                    <Button size="sm" className="w-full">Shop Now</Button>
-                  </div>
-                </Link>
-              </motion.div>
+            {superSaverOffers.map((offer) => (
+              <CategoryCard key={offer.name} {...offer} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm border border-white/10 p-8 lg:p-16">
+          {!isLoading && products && products.length > 0 && (
+            <ProductGrid 
+              products={products.slice(0, 8)} 
+              title="Featured Products"
+            />
+          )}
         </div>
       </section>
 
@@ -223,18 +281,21 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Link href="/about" className="text-center group">
               <div className="rounded-2xl bg-white/30 backdrop-blur-sm border border-white/20 p-6 group-hover:bg-white/40 transition-all duration-300">
+                <Package className="w-8 h-8 text-primary mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-primary mb-2">About Us</h3>
                 <p className="text-sm text-muted-foreground">Learn more about our story</p>
               </div>
             </Link>
             <Link href="/contact" className="text-center group">
               <div className="rounded-2xl bg-white/30 backdrop-blur-sm border border-white/20 p-6 group-hover:bg-white/40 transition-all duration-300">
+                <Heart className="w-8 h-8 text-primary mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-primary mb-2">Contact Us</h3>
                 <p className="text-sm text-muted-foreground">Get in touch with us</p>
               </div>
             </Link>
             <Link href="/know-us" className="text-center group">
               <div className="rounded-2xl bg-white/30 backdrop-blur-sm border border-white/20 p-6 group-hover:bg-white/40 transition-all duration-300">
+                <Star className="w-8 h-8 text-primary mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-primary mb-2">Know Us</h3>
                 <p className="text-sm text-muted-foreground">Discover our mission</p>
               </div>
@@ -243,17 +304,23 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl mb-3">🌿</div>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Package className="w-6 h-6 text-primary" />
+              </div>
               <h4 className="font-semibold text-primary mb-2">Soft & Safe Fabrics</h4>
               <p className="text-sm text-muted-foreground">Gentle on baby's delicate skin</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-3">🌍</div>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Heart className="w-6 h-6 text-primary" />
+              </div>
               <h4 className="font-semibold text-primary mb-2">Eco-Friendly Materials</h4>
               <p className="text-sm text-muted-foreground">Sustainable choices for our planet</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-3">💕</div>
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Star className="w-6 h-6 text-primary" />
+              </div>
               <h4 className="font-semibold text-primary mb-2">Loved by Parents</h4>
               <p className="text-sm text-muted-foreground">Trusted by families worldwide</p>
             </div>
@@ -270,9 +337,9 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
               Join the Growing Family!
-              <span className="text-4xl">✨</span>
+              <Sparkles className="w-8 h-8 text-primary" />
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8 mb-8">

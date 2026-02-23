@@ -68,6 +68,7 @@ export default function Footer() {
         
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Planet Mini. All rights reserved.</p>
+          <p className="text-muted-foreground text-sl">Powered by <a href="https://codecraftnet.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Code Craft</a></p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Privacy Policy</Link>
             <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Terms of Service</Link>
