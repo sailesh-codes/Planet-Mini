@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { useProducts } from "@/hooks/use-products";
 import { motion } from "framer-motion";
 
-export function Home() {
+export default function Home() {
   const { data: products, isLoading } = useProducts();
 
   const categories = [
@@ -45,7 +45,7 @@ export function Home() {
               <Link href="/shop/style">
                 <Button size="lg" className="w-full sm:w-auto">Shop Collection</Button>
               </Link>
-            </Link>
+            </motion.div>
           </div>
           <div className="flex-1 w-full h-full relative min-h-[400px]">
             {/* baby in cute pastel onesie */}
