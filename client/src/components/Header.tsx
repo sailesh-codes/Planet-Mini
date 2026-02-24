@@ -28,6 +28,9 @@ export function Header() {
     { label: "Style", href: "/shop/style" },
     { label: "Age", href: "/shop/age" },
     { label: "Care", href: "/shop/care" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Admin", href: "/admin" },
   ];
 
   return (

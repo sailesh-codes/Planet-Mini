@@ -30,11 +30,11 @@ export default function Home() {
     },
     {
       id: 3,
-      title: "Eco-Friendly\nBaby Care",
-      subtitle: "Sustainable choices for your little one",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600",
-      buttonText: "Learn More",
-      buttonLink: "/about"
+      title: "Adorable\nDesigns",
+      subtitle: "Cute patterns your baby will love",
+      image: "https://images.unsplash.com/photo-1606334012513-947a0c0259e1?auto=format&fit=crop&q=80&w=600",
+      buttonText: "View Designs",
+      buttonLink: "/shop/age"
     }
   ];
 
@@ -167,11 +167,48 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-16">
-      {/* Hero Section with Slider */}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50 space-y-16">
+      {/* Hero Section with 8:3 Banner */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-pink-100/70 via-rose-100/60 to-pink-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
-          <Slider slides={sliderSlides} autoPlay={true} interval={4000} />
+          <div className="relative w-full" style={{ paddingBottom: '37.5%' }}>
+            <img 
+              src="/banner-hero.jpg" 
+              alt="Hero Banner" 
+              className="absolute inset-0 w-full h-full object-cover rounded-[2.5rem]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20 rounded-[2.5rem]"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6"
+              >
+                Welcome to Planet Mini
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-lg md:text-xl text-center max-w-3xl mx-auto mb-8"
+              >
+                Adorable & Comfortable Baby Wear
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link 
+                  href="/shop"
+                  className="inline-flex items-center justify-center rounded-xl bg-white text-gray-900 px-8 py-4 text-lg font-semibold hover:bg-gray-100 transition-colors"
+                >
+                  Shop Now
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 

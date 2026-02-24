@@ -29,6 +29,9 @@ export default function Navbar() {
     { label: "Shop by Style", href: "/shop/style" },
     { label: "Shop by Age", href: "/shop/age" },
     { label: "Baby Care", href: "/shop/care" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Admin", href: "/admin" },
   ];
 
   return (

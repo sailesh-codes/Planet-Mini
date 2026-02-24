@@ -50,7 +50,7 @@ export default function ShopOffers() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50">
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-20">
         <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-yellow-100/50 to-orange-100/50 backdrop-blur-md border border-white/20 shadow-xl">

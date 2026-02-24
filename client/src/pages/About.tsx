@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { Heart, Shield, Truck, Award, Users, Globe } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50">
-      {/* Hero Section with Pale Blur */}
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-20">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-white/30 backdrop-blur-md border border-white/20 shadow-xl">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-pink-100/70 via-rose-100/60 to-pink-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
           <div className="p-8 lg:p-16 text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -18,7 +20,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"
             >
               We're dedicated to providing the softest, safest, and most adorable baby wear for your little ones.
             </motion.p>
@@ -28,89 +30,145 @@ export default function About() {
 
       {/* Our Story Section */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-16">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm border border-white/10">
-          <div className="p-8 lg:p-16">
-            <motion.h2 
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+            <p className="text-gray-600 mb-4">
+              Founded in 2020, Planet Mini began with a simple mission: to create baby clothing that combines comfort, safety, and style. As parents ourselves, we understood the need for high-quality, gentle fabrics that keep babies comfortable while making parents feel confident.
+            </p>
+            <p className="text-gray-600 mb-6">
+              Today, we're proud to serve families worldwide with our carefully curated collection of baby essentials, each piece designed with love and attention to detail.
+            </p>
+            <Link 
+              href="/shop"
+              className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors"
+            >
+              Shop Our Collection
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="relative"
+          >
+            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-pink-100 to-purple-100">
+              <img 
+                src="https://images.unsplash.com/photo-1541697960113-1ca22342bd6d?auto=format&fit=crop&q=80&w=600"
+                alt="Baby clothing" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            The principles that guide everything we do
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              icon: Heart,
+              title: "Made with Love",
+              description: "Every piece is crafted with care and attention to detail"
+            },
+            {
+              icon: Shield,
+              title: "Safety First",
+              description: "All materials are tested and certified for baby safety"
+            },
+            {
+              icon: Truck,
+              title: "Fast Delivery",
+              description: "Quick and reliable shipping to your doorstep"
+            },
+            {
+              icon: Award,
+              title: "Quality Guaranteed",
+              description: "Premium materials that stand the test of time"
+            },
+            {
+              icon: Users,
+              title: "Family Owned",
+              description: "A small business with big dreams for your little ones"
+            },
+            {
+              icon: Globe,
+              title: "Eco-Friendly",
+              description: "Sustainable practices for a better future"
+            }
+          ].map((value, index) => (
+            <motion.div
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-2xl shadow-sm p-6 text-center"
             >
-              Our Story
-            </motion.h2>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="grid md:grid-cols-2 gap-12 items-center"
-            >
-              <div>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Planet Mini was born from a simple desire: to create baby clothes that are as gentle 
-                  on the planet as they are on your baby's delicate skin.
-                </p>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Our journey began when our founders, new parents themselves, struggled to find 
-                  baby wear that met their standards for comfort, safety, and sustainability.
-                </p>
-                <p className="text-lg text-muted-foreground">
-                  Today, we're proud to offer a curated collection of baby essentials that parents 
-                  trust and babies love.
-                </p>
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <value.icon className="w-8 h-8 text-primary" />
               </div>
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1541697960113-1ca22342bd6d?auto=format&fit=crop&q=80&w=600" 
-                  alt="Baby clothes collection" 
-                  className="rounded-2xl shadow-lg w-full"
-                />
-              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+              <p className="text-gray-600">{value.description}</p>
             </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-16">
+        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 lg:p-12 text-white">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "50K+", label: "Happy Customers" },
+              { number: "200+", label: "Products" },
+              { number: "15+", label: "Countries" },
+              { number: "4.9★", label: "Average Rating" }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
+                <div className="text-white/80">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Our Values Section */}
+      {/* CTA Section */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-16">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-white/20 backdrop-blur-sm border border-white/10">
-          <div className="p-8 lg:p-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+        <div className="bg-white rounded-2xl shadow-sm p-8 lg:p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Join the Planet Mini Family
+          </h2>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            Discover why thousands of parents trust us for their baby's essentials
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/shop"
+              className="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors"
             >
-              Our Values
-            </motion.h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: "🌱",
-                  title: "Eco-Friendly",
-                  description: "We use sustainable materials and eco-friendly processes to protect our planet for future generations."
-                },
-                {
-                  icon: "🤱",
-                  title: "Baby-Safe",
-                  description: "All our products are tested for safety and made with non-toxic, hypoallergenic materials."
-                },
-                {
-                  icon: "💝",
-                  title: "Parent-Approved",
-                  description: "Designed by parents, for parents. Every product is tested and approved by real families."
-                }
-              ].map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 rounded-2xl bg-white/30 backdrop-blur-sm border border-white/20"
-                >
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-primary mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
+              Start Shopping
+            </Link>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
