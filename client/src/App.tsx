@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import AdminDashboard from "./pages/AdminDashboard";
 import KnowUs from "./pages/KnowUs";
 import Shop from "./pages/Shop";
@@ -26,7 +27,10 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/faq" component={FAQ} />
         <Route path="/admin" component={AdminDashboard} />
+        <Route path="/account" component={Profile} />
+        <Route path="/profile" component={Profile} />
         <Route path="/know-us" component={KnowUs} />
         <Route path="/shop" component={Shop} />
         <Route path="/shop/style" component={ShopStyle} />
@@ -35,7 +39,6 @@ function Router() {
         <Route path="/shop/offers" component={ShopOffers} />
         <Route path="/cart" component={Cart} />
         <Route path="/search" component={Search} />
-        <Route path="/profile" component={Profile} />
         <Route path="/products/:slug" component={Home} />
         <Route path="/privacy" component={Home} />
         <Route path="/terms" component={Home} />

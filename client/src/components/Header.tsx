@@ -27,7 +27,7 @@ export function Header() {
     { label: "Home", href: "/" },
     { label: "Style", href: "/shop/style" },
     { label: "Age", href: "/shop/age" },
-    { label: "Care", href: "/shop/care" },
+    { label: "FAQ", href: "/faq" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "Admin", href: "/admin" },
@@ -79,7 +79,7 @@ export function Header() {
             <button className="p-2 text-foreground/80 hover:text-primary transition-colors hidden sm:block">
               <Search className="w-5 h-5" />
             </button>
-            <Link href="/account" className="p-2 text-foreground/80 hover:text-primary transition-colors">
+            <Link href="/profile" className="p-2 text-foreground/80 hover:text-primary transition-colors">
               <User className={`w-5 h-5 ${user ? 'fill-current' : ''}`} />
             </Link>
             <Link href="/cart" className="relative p-2 text-foreground/80 hover:text-primary transition-colors">

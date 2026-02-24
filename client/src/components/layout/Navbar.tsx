@@ -28,7 +28,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Shop by Style", href: "/shop/style" },
     { label: "Shop by Age", href: "/shop/age" },
-    { label: "Baby Care", href: "/shop/care" },
+    { label: "FAQ", href: "/faq" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "Admin", href: "/admin" },
@@ -91,7 +91,7 @@ export default function Navbar() {
                 <Search className="w-5 h-5" />
               </button>
               <Link
-                href="/account"
+                href="/profile"
                 className="hidden sm:flex p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-full transition-all"
               >
                 <User className="w-5 h-5" />
@@ -159,7 +159,7 @@ export default function Navbar() {
                 ))}
                 <div className="h-px bg-border my-4" />
                 <Link
-                  href="/account"
+                  href="/profile"
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-lg font-semibold py-3 px-4 rounded-xl text-muted-foreground hover:bg-muted transition-colors flex items-center gap-3"
                 >
