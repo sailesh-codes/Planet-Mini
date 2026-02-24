@@ -7,7 +7,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-50 via-blue-50 to-pink-50">
       <Header />
       <AnimatePresence mode="wait">
         <motion.main

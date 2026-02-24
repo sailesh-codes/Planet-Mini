@@ -32,7 +32,7 @@ export default function ShopStyle() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-pink-50">
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-20">
         <div className="relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm p-8 lg:p-16 text-center">

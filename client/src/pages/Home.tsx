@@ -167,10 +167,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-purple-50 space-y-16">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-pink-50 space-y-16">
       {/* Hero Section with 8:3 Banner */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-pink-100/70 via-rose-100/60 to-pink-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-pink-100/70 via-blue-100/60 to-pink-100/50 backdrop-blur-sm border border-white/20 shadow-xl">
           <div className="relative w-full" style={{ paddingBottom: '37.5%' }}>
             <img 
               src="/banner-hero.jpg" 
