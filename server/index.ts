@@ -3,8 +3,32 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import dotenv from "dotenv";
+import session from "express-session";
+import cookieParser from "cookie-parser";
+import path from "path";
 
-dotenv.config();
+// Load environment variables from .env file
+const envPath = path.join(process.cwd(), '.env');
+console.log("Attempting to load .env from:", envPath);
+dotenv.config({ path: envPath, debug: true });
+
+// Environment variables should be loaded from .env file
+// Do not hardcode secrets in the code
+
+// Configure Google OAuth after setting environment variables
+const { configureGoogleStrategy } = await import('./auth/google');
+configureGoogleStrategy();
+
+// Temporary fix for DATABASE_URL
+if (!process.env.DATABASE_URL) {
+  process.env.DATABASE_URL = "mongodb+srv://Planet-minii:qmbofu-13912i@cluster0.63ppmv1.mongodb.net/?appName=Cluster0";
+}
+
+console.log(" DATABASE_URL loaded:", process.env.DATABASE_URL ? " YES" : " NO");
+console.log(" GOOGLE_CLIENT_ID loaded:", process.env.GOOGLE_CLIENT_ID ? " YES" : " NO");
+console.log(" GOOGLE_CLIENT_SECRET loaded:", process.env.GOOGLE_CLIENT_SECRET ? " YES" : " NO");
+console.log(" SESSION_SECRET loaded:", process.env.SESSION_SECRET ? " YES" : " NO");
+console.log(" Current working directory:", process.cwd());
 
 const app = express();
 const httpServer = createServer(app);
@@ -17,6 +41,7 @@ declare module "http" {
 
 app.use(
   express.json({
+    limit: "50mb",
     verify: (req, _res, buf) => {
       req.rawBody = buf;
     },
@@ -24,6 +49,19 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'your-session-secret-here',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+}));
+
+app.use(cookieParser());
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -63,6 +101,16 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Initialize MongoDB connection first
+  try {
+    // Always initialize Mongoose for Google Auth to work
+    const { connectToMongoDB } = await import('./models/Profile');
+    await connectToMongoDB();
+  } catch (error) {
+    console.error('Failed to initialize MongoDB:', error);
+    // Continue without MongoDB for now
+  }
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
@@ -89,10 +137,10 @@ app.use((req, res, next) => {
   }
 
   // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
+  // Other ports are firewalled. Default to 5003 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5002", 10);
+  const port = parseInt(process.env.PORT || "5003", 10);
   httpServer.listen(
     {
       port,
